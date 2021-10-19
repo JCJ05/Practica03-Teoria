@@ -1,15 +1,16 @@
 @model Solicitudes
 
 
-@{
-    ViewData["Title"] = "Registro de Usuarios";
+@{  
+    Layout = "_Plantilla";
+    ViewData["Title"] = "Registro de Productos";
     List<Categorias> categorias = new List<Categorias>();
     categorias = ViewBag.items;
     
 }
-<h1>@ViewData["Title"]</h1>
+<h1 class="text-center">@ViewData["Title"]</h1>
 
-<h1>Formulario de registro de Usuarios</h1>
+
 
 <div asp-validation-summary="All" class="text-danger"></div>
 
