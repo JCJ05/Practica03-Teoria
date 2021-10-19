@@ -1,0 +1,85 @@
+@model Solicitudes
+
+
+@{
+    ViewData["Title"] = "Registro de Usuarios";
+    List<Categorias> categorias = new List<Categorias>();
+    categorias = ViewBag.items;
+    
+}
+<h1>@ViewData["Title"]</h1>
+
+<h1>Formulario de registro de Usuarios</h1>
+
+<div asp-validation-summary="All" class="text-danger"></div>
+
+<form asp-controller="Solicitud"  asp-action="Registro"   method="post">
+
+    <div class="form-group">
+        <label asp-for="nombre"></label>
+        <input type="text" asp-for="nombre" class="form-control">
+        <span class="text-danger" asp-validation-for="nombre"></span>
+    </div>
+
+   <div class="form-group">
+        <label asp-for="foto"></label>
+        <input type="text" asp-for="foto" class="form-control">
+        <span class="text-danger" asp-validation-for="foto"></span>
+    </div>
+
+     <div class="form-group">
+        <label asp-for="descripcion"></label>
+       <textarea asp-for="descripcion" class="form-control" cols="30" rows="10"></textarea>
+        <span class="text-danger" asp-validation-for="descripcion"></span>
+    </div>
+
+      <div class="form-group">
+        <label asp-for="precio"></label>
+      <input type="number" asp-for="precio" class="form-control">
+        <span class="text-danger" asp-validation-for="descripcion"></span>
+    </div>
+
+     <div class="form-group">
+        <label asp-for="celular"></label>
+      <input type="text" asp-for="celular" class="form-control">
+        <span class="text-danger" asp-validation-for="celular"></span>
+    </div>
+
+      <div class="form-group">
+        <label asp-for="lugar"></label>
+      <input type="text" asp-for="lugar" class="form-control">
+        <span class="text-danger" asp-validation-for="lugar"></span>
+    </div>
+
+     <div class="form-group">
+        <label asp-for="comprador"></label>
+      <input type="text" asp-for="comprador" class="form-control">
+        <span class="text-danger" asp-validation-for="comprador"></span>
+    </div>
+
+     <div class="form-group" >
+        <label asp-for="Categorias">Selecciona tu categoria</label>
+         
+         <div class="form-group">
+
+           <select class="form-control" name="datos">
+
+               <option selected disabled>Seleccione su categoria...</option>
+
+               @foreach (var item in categorias)
+               {
+
+                 <option value="@item.Id">@item.nombre</option>
+                   
+               }
+
+           </select>
+
+            <span class="text-danger" asp-validation-for="Categorias"></span>
+
+       </div>
+        
+    </div>
+
+    <button class="btn btn-primary">Enviar</button>
+</form>

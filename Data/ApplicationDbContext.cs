@@ -12,6 +12,9 @@ namespace Practica03_Teoria.Data
 
         }
 
+        public DbSet<Practica03_Teoria.Models.Solicitudes> DataSolicitudes { get; set; }
+
+        public DbSet<Practica03_Teoria.Models.Categorias> DataCategorias { get; set; }
         
     }
 }
